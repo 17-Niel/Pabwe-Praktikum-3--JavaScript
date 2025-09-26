@@ -1,0 +1,142 @@
+/* style.css */
+
+body {
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+.card {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.card-header {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Tombol hover effect */
+.btn-primary:hover {
+  background-color: #0b5ed7;
+  transform: translateY(-1px);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-outline-danger:hover,
+.btn-outline-secondary:hover {
+  transform: scale(1.05);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Todo item */
+.list-group-item {
+  transition: background-color 0.2s ease;
+  border-radius: 0.5rem !important;
+}
+
+.list-group-item:hover {
+  background-color: #f8f9fa;
+}
+
+/* Checkbox */
+.form-check-input:checked {
+  background-color: #198754;
+  border-color: #198754;
+}
+
+/* Animasi drag */
+.dragging {
+  opacity: 0.6;
+  background: #dce9ff !important;
+  border: 2px dashed #0d6efd;
+}
+
+/* Pencarian focus effect */
+#search:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Label todo */
+.form-check-label {
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.form-check-label:hover {
+  color: #0d6efd;
+}
+
+/* Responsif */
+@media (max-width: 576px) {
+  .card-header h3 {
+    font-size: 1rem;
+  }
+  .btn {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
+/* custom.css - perbaikan tampilan */
+:root{
+  --primary-gradient: linear-gradient(90deg,#0d6efd,#6610f2);
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, #f7fafc 0%, #eef2f7 100%);
+}
+
+/* header */
+.bg-gradient-primary {
+  background: var(--primary-gradient) !important;
+}
+
+/* list items */
+.list-group-item {
+  transition: transform .12s ease, box-shadow .12s ease;
+  cursor: default;
+  user-select: none;
+  display: flex;
+}
+
+.list-group-item .drag-handle {
+  cursor: grab;
+  font-size: 1.1rem;
+  color: #6c757d;
+}
+
+.list-group-item .drag-handle:active {
+  cursor: grabbing;
+}
+
+/* dragging visual */
+.draggable.dragging {
+  opacity: 0.75;
+  transform: scale(.995);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* checkbox spacing */
+.form-check-input {
+  transform: scale(1.05);
+  margin-left: 0.2rem;
+}
+
+/* todo text */
+.todo-text {
+  font-size: 1rem;
+  max-width: 40rem;
+  word-break: break-word;
+}
+
+/* responsive tweaks */
+@media (max-width: 576px) {
+  .todo-text { font-size: 0.95rem; }
+  .drag-handle { display: inline-block; }
+}
