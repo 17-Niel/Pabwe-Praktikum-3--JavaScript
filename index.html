@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo List</title>
 
-    <!-- Bootstrap v5.3 (lokal sesuai struktur proyekmu) -->
     <link
       rel="stylesheet"
       href="/assets/vendor/bootstrap-5.3.7/package/dist/css/bootstrap.min.css"
     />
-    <!-- Bootstrap Icons -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link
       rel="stylesheet"
       href="/assets/vendor/bootstrap-icons-1.13.1/package/font/bootstrap-icons.min.css"
     />
-    <!-- Custom CSS -->
+
     <link rel="stylesheet" href="/style/custom.css" />
   </head>
   <body class="bg-light">
@@ -28,14 +27,24 @@
             <i class="bi bi-check2-square display-6 me-3"></i>
             <div>
               <h3 class="mb-0">Todo List</h3>
-              <small class="text-white-50">Atur rencanamu dengan rapi</small>
+              <small class="text-white-50"
+                >Atur rencanamu dengan rapi disini</small
+              >
             </div>
           </div>
           <div class="d-flex align-items-center gap-2">
-            <button id="clearCompleted" class="btn btn-sm btn-light" title="Hapus semua yang selesai">
+            <button
+              id="clearCompleted"
+              class="btn btn-sm btn-light"
+              title="Hapus semua yang selesai"
+            >
               <i class="bi bi-trash-fill text-danger"></i> Hapus Selesai
             </button>
-            <button id="clearAll" class="btn btn-sm btn-outline-light" title="Hapus semua todo">
+            <button
+              id="clearAll"
+              class="btn btn-sm btn-outline-light"
+              title="Hapus semua todo"
+            >
               <i class="bi bi-x-circle"></i> Reset
             </button>
           </div>
@@ -45,10 +54,12 @@
           <!-- Form tambah -->
           <form id="formData" class="mb-4">
             <label for="text" class="form-label fw-semibold">
-              Apa rencana kamu selanjutnya?
+              Apa rencanamu Selanjutnya?
             </label>
             <div class="input-group input-group-lg">
-              <span class="input-group-text"><i class="bi bi-list-task"></i></span>
+              <span class="input-group-text"
+                ><i class="bi bi-list-task"></i
+              ></span>
               <input
                 id="todoInput"
                 type="text"
@@ -62,7 +73,10 @@
                 <i class="bi bi-plus-lg"></i> Tambah
               </button>
             </div>
-            <div id="formHelp" class="form-text">Tidak boleh kosong & tidak boleh duplikat (case-insensitive).</div>
+            <div id="formHelp" class="form-text">
+              Tidak boleh kosong & tidak boleh duplikat.
+              <p>Masa Rencana Kegiatan Kosong? atau duplikat</p>
+            </div>
           </form>
 
           <!-- Filter dan Pencarian -->
@@ -76,7 +90,9 @@
             </div>
             <div class="col-md-8">
               <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-search"></i></span>
+                <span class="input-group-text"
+                  ><i class="bi bi-search"></i
+                ></span>
                 <input
                   type="text"
                   id="search"
@@ -84,7 +100,11 @@
                   placeholder="Cari todo..."
                   aria-label="Cari todo"
                 />
-                <button id="clearSearch" class="btn btn-outline-secondary" title="Bersihkan pencarian">
+                <button
+                  id="clearSearch"
+                  class="btn btn-outline-secondary"
+                  title="Bersihkan pencarian"
+                >
                   <i class="bi bi-x"></i>
                 </button>
               </div>
@@ -109,23 +129,51 @@
         <div class="modal-content">
           <form id="editForm">
             <div class="modal-header">
-              <h5 class="modal-title" id="editModalLabel"><i class="bi bi-pencil-square me-2"></i>Edit Todo</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <h5 class="modal-title" id="editModalLabel">
+                <i class="bi bi-pencil-square me-2"></i>Edit Todo
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
             <div class="modal-body">
               <div class="mb-3">
                 <label for="editTodoInput" class="form-label">Judul</label>
-                <input type="text" id="editTodoInput" class="form-control" required />
-                <div id="editHelp" class="form-text">Judul tidak boleh sama dengan todo lain.</div>
+                <input
+                  type="text"
+                  id="editTodoInput"
+                  class="form-control"
+                  required
+                />
+                <div id="editHelp" class="form-text">
+                  Judul tidak boleh sama dengan todo lain.
+                </div>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="editCompleted" />
-                <label class="form-check-label" for="editCompleted">Tandai selesai</label>
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="editCompleted"
+                />
+                <label class="form-check-label" for="editCompleted"
+                  >Tandai selesai</label
+                >
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-              <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Batal
+              </button>
+              <button type="submit" class="btn btn-primary">
+                Simpan Perubahan
+              </button>
             </div>
           </form>
         </div>
@@ -145,7 +193,8 @@
       let searchQuery = "";
 
       // helper: generate id (timestamp + random)
-      const generateId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+      const generateId = () =>
+        Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
 
       // load
       function loadTodos() {
@@ -171,7 +220,8 @@
         const filtered = todos.filter((t) => {
           if (filterStatus === "completed" && !t.completed) return false;
           if (filterStatus === "pending" && t.completed) return false;
-          if (searchQuery && !t.todo.toLowerCase().includes(searchQuery)) return false;
+          if (searchQuery && !t.todo.toLowerCase().includes(searchQuery))
+            return false;
           return true;
         });
 
@@ -235,7 +285,9 @@
           actions.className = "d-flex align-items-center gap-2";
 
           const badge = document.createElement("span");
-          badge.className = item.completed ? "badge bg-success" : "badge bg-warning text-dark";
+          badge.className = item.completed
+            ? "badge bg-success"
+            : "badge bg-warning text-dark";
           badge.textContent = item.completed ? "Selesai" : "Belum Selesai";
 
           const editBtn = document.createElement("button");
@@ -324,7 +376,9 @@
 
       // helper: cari element setelah posisi kursor
       function getDragAfterElement(container, y) {
-        const draggableElements = [...container.querySelectorAll(".list-group-item:not(.dragging)")];
+        const draggableElements = [
+          ...container.querySelectorAll(".list-group-item:not(.dragging)"),
+        ];
 
         return draggableElements.reduce(
           (closest, child) => {
@@ -366,7 +420,9 @@
           }
 
           // validasi duplikat case-insensitive
-          const exists = todos.some((t) => t.todo.toLowerCase() === todoText.toLowerCase());
+          const exists = todos.some(
+            (t) => t.todo.toLowerCase() === todoText.toLowerCase()
+          );
           if (exists) {
             alert("Todo dengan judul sama sudah ada!");
             return;
@@ -377,7 +433,7 @@
             todo: todoText,
             completed: false,
             createdAt: Date.now(),
-            updatedAt: null
+            updatedAt: null,
           };
 
           // tambahkan di depan (newest first)
@@ -446,7 +502,10 @@
         }
 
         // cek duplikat kecuali dirinya sendiri
-        const duplicate = todos.some((t) => t.todo.toLowerCase() === newText.toLowerCase() && t.id !== editingId);
+        const duplicate = todos.some(
+          (t) =>
+            t.todo.toLowerCase() === newText.toLowerCase() && t.id !== editingId
+        );
         if (duplicate) {
           alert("Todo dengan judul sama sudah ada!");
           return;
